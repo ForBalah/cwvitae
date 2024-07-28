@@ -1,0 +1,32 @@
+---
+import type { MarkdownInstance } from "astro";
+
+interface Props {
+  source: MarkdownInstance<Record<string, any>>;
+  id: string;
+}
+
+const { id, source } = Astro.props;
+
+function extractSectionById(id: string) {
+  const extractRegex = RegExp(
+    `<(h1|h2|h3|h4)\\s+id="${id}".*?(?=(<(h1|h2|h3|h4)|$))`,
+    "si"
+  );
+  return {
+    section: extractRegex.exec(source.compiledContent())?.[0],
+  };
+}
+---
+
+<section>
+  <div class="container" set:html={extractSectionById(id).section} />
+</section>
+
+<style>
+  section {
+    position: relative;
+    background-color: var(--base);
+    /* box-shadow: 0px -18px 20px 0px rgba(0, 0, 0, 0.3); */
+  }
+</style>

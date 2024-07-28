@@ -1,0 +1,22 @@
+---
+import ResumeSection from "./ResumeSection.astro";
+
+const readme = (await Astro.glob("../../README.md"))[0];
+---
+
+<div class="resume">
+  <ResumeSection id="professional-summary" source={readme} />
+  <ResumeSection id="work-experience" source={readme} />
+  <ResumeSection id="skills" source={readme} />
+  <ResumeSection id="education" source={readme} />
+  <ResumeSection id="certifications" source={readme} />
+  <ResumeSection id="notable-projects" source={readme} />
+</div>
+
+<style>
+  .resume {
+    padding-top: 50dvh;
+    position: relative;
+    pointer-events: none;
+  }
+</style>

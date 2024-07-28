@@ -1,0 +1,206 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="ForBalah Resume" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+<style is:global>
+  :root {
+    --engineering-orange: #c03221ff;
+    --ghost-white: #f7f7ffff;
+    --sunset: #f2d0a4ff;
+    --paynes-gray: #545e75ff;
+    --viridian: #3f826dff;
+
+    --base: var(--ghost-white);
+    --text: var(--paynes-gray);
+    --text-secondary: var(--viridian);
+
+    --base-padding: 20px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --base: var(--paynes-gray);
+      --text: var(--ghost-white);
+      --text-secondary: var(--sunset);
+    }
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+  html {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+  }
+  body {
+    color: var(--text);
+    background-color: var(--base);
+    margin: 0;
+    line-height: calc(1em + 0.5rem);
+  }
+  code {
+    font-family:
+      Menlo,
+      Monaco,
+      Lucida Console,
+      Liberation Mono,
+      DejaVu Sans Mono,
+      Bitstream Vera Sans Mono,
+      Courier New,
+      monospace;
+  }
+  a {
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .lato-thin {
+    font-family: "Lato", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+  }
+
+  .lato-light {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  .lato-regular {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .lato-bold {
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  .lato-black {
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+  }
+
+  .lato-thin-italic {
+    font-family: "Lato", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+  }
+
+  .lato-light-italic {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  .lato-regular-italic {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  .lato-bold-italic {
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  .lato-black-italic {
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+  }
+
+  .button {
+    background-color: var(--engineering-orange);
+    border: 1px solid var(--sunset);
+    color: var(--ghost-white);
+    padding: 0.25em;
+    border-radius: 0.5em;
+  }
+
+  .button:active {
+    background-color: var(--viridian);
+  }
+
+  .pad-s {
+    padding: calc(var(--base-padding) * 0.5);
+  }
+
+  .pad-m {
+    padding: var(--base-padding);
+  }
+
+  .pad-l {
+    padding: calc(var(--base-padding) * 1.5);
+  }
+
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+    width: min(1400px, 100%);
+    padding-left: var(--base-padding);
+    padding-right: var(--base-padding);
+  }
+</style>
