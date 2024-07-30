@@ -2,11 +2,22 @@
 import ResumeSection from "./ResumeSection.astro";
 
 const readme = (await Astro.glob("../../README.md"))[0];
+console.log(readme.compiledContent());
 ---
 
 <div class="resume">
   <ResumeSection id="professional-summary" source={readme} />
   <ResumeSection id="work-experience" source={readme} />
+  <ResumeSection id="team-lead---entelect" source={readme} />
+  <ResumeSection id="may-2020---present" source={readme} />
+  <ResumeSection id="technical-architect---open-box-software" source={readme} />
+  <ResumeSection id="january-2018---april-2020" source={readme} />
+  <ResumeSection id="senior-developer---open-box-software" source={readme} />
+  <ResumeSection id="january-2013---december-2018" source={readme} />
+  <ResumeSection id="data-analyst---open-box-software" source={readme} />
+  <ResumeSection id="january-2010---december-2012" source={readme} />
+  <ResumeSection id="analyst-developer---open-box-software" source={readme} />
+  <ResumeSection id="january-2008---december-2009" source={readme} />
   <ResumeSection id="skills" source={readme} />
   <ResumeSection id="education" source={readme} />
   <ResumeSection id="certifications" source={readme} />
@@ -15,8 +26,7 @@ const readme = (await Astro.glob("../../README.md"))[0];
 
 <style>
   .resume {
-    padding-top: 50dvh;
     position: relative;
-    pointer-events: none;
+    top: 50dvh;
   }
 </style>
